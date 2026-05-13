@@ -7,13 +7,21 @@ const MEMBERSHIP_FORM =
 const FOAM_TRIALS_FORM =
   'https://docs.google.com/forms/d/e/1FAIpQLSf7Y2b2pAfA_4xI2VsJei7NmSh7qzAN5q8mUvEbUe3sMrAzWQ/viewform'
 
+/** Files in `public/` — must use BASE_URL so paths work on GitHub Pages (`/repo/...`). */
+function publicAsset(file: string): string {
+  const name = file.startsWith('/') ? file.slice(1) : file
+  const base = import.meta.env.BASE_URL
+  const prefix = base.endsWith('/') ? base : `${base}/`
+  return `${prefix}${name}`
+}
+
 function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-qda-ink/70 backdrop-blur">
       <div className="container-pad flex h-16 items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
           <img
-            src="/logo.avif"
+            src={publicAsset('logo.avif')}
             alt="Queensland Dodgeball Association"
             className="h-9 w-9 rounded-xl bg-white/5 object-contain p-1 ring-1 ring-white/10"
           />
@@ -160,9 +168,9 @@ function App() {
               loop
               playsInline
               preload="metadata"
-              poster="/logo.avif"
+              poster={publicAsset('logo.avif')}
             >
-              <source src="/hero.mp4" type="video/mp4" />
+              <source src={publicAsset('hero.mp4')} type="video/mp4" />
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-qda-ink/55 via-qda-ink/75 to-qda-ink"></div>
             <div className="absolute inset-0 bg-grain [background-size:18px_18px] opacity-40"></div>
@@ -445,7 +453,7 @@ function App() {
         <div className="container-pad flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
           <div className="flex items-center gap-3">
             <img
-              src="/logo.avif"
+              src={publicAsset('logo.avif')}
               alt=""
               className="h-9 w-9 rounded-xl bg-white/5 object-contain p-1 ring-1 ring-white/10"
             />
