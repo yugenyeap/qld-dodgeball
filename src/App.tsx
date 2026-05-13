@@ -6,6 +6,8 @@ const MEMBERSHIP_FORM =
   'https://docs.google.com/forms/d/e/1FAIpQLSd8YKNRB5a0YLPShFXZ_JT5GVr6-htbZecz2cH9TzayGaX-MA/viewform?pli=1'
 const FOAM_TRIALS_FORM =
   'https://docs.google.com/forms/d/e/1FAIpQLSf7Y2b2pAfA_4xI2VsJei7NmSh7qzAN5q8mUvEbUe3sMrAzWQ/viewform'
+const DOUBLES_TRYBOOKING =
+  'https://www.trybooking.com/events/landing/1552761'
 
 /** Files in `public/` — must use BASE_URL so paths work on GitHub Pages (`/repo/...`). */
 function publicAsset(file: string): string {
@@ -37,8 +39,8 @@ function Nav() {
           <a href="#about" className="hover:text-white">
             About
           </a>
-          <a href="#adcs" className="hover:text-white">
-            ADCS 2026
+          <a href="#events" className="hover:text-white">
+            Events
           </a>
           <a href="#get-involved" className="hover:text-white">
             Get involved
@@ -62,7 +64,7 @@ function Nav() {
           >
             Facebook
           </a>
-          <a className="btn-ghost hidden sm:inline-flex" href="#adcs">
+          <a className="btn-ghost hidden sm:inline-flex" href="#events">
             Event details
           </a>
           <a
@@ -83,8 +85,8 @@ function Nav() {
                 <a className="rounded-xl px-3 py-2 hover:bg-white/10" href="#about">
                   About
                 </a>
-                <a className="rounded-xl px-3 py-2 hover:bg-white/10" href="#adcs">
-                  ADCS 2026
+                <a className="rounded-xl px-3 py-2 hover:bg-white/10" href="#events">
+                  Events
                 </a>
                 <a
                   className="rounded-xl px-3 py-2 hover:bg-white/10"
@@ -141,11 +143,10 @@ function Nav() {
   )
 }
 
-function SectionHeading(props: { eyebrow: string; title: string; body: string }) {
+function SectionHeading(props: { title: string; body: string }) {
   return (
     <div className="mx-auto max-w-2xl text-center lg:max-w-3xl">
-      <div className="badge mx-auto w-fit">{props.eyebrow}</div>
-      <h2 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+      <h2 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
         {props.title}
       </h2>
       <p className="mt-3 text-pretty text-white/75 lg:text-lg">{props.body}</p>
@@ -178,10 +179,7 @@ function App() {
 
           <div className="container-pad py-12 sm:py-16 md:py-24">
             <div className="mx-auto max-w-3xl text-center lg:max-w-5xl">
-              <div className="badge mx-auto">
-                Official state governing body • Queensland
-              </div>
-              <h1 className="mt-5 text-balance text-4xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
+              <h1 className="text-balance text-4xl font-semibold tracking-tight text-white sm:text-6xl lg:text-7xl">
                 Queensland Dodgeball Association
               </h1>
               <p className="mt-4 text-pretty text-base text-white/80 sm:text-lg lg:text-xl">
@@ -190,8 +188,8 @@ function App() {
               </p>
 
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <a className="btn-primary w-full sm:w-auto" href="#adcs">
-                  ADCS 2026 — event info
+                <a className="btn-primary w-full sm:w-auto" href="#events">
+                  View events
                 </a>
                 <a
                   className="btn-ghost w-full sm:w-auto"
@@ -200,14 +198,6 @@ function App() {
                   rel="noreferrer"
                 >
                   2026 Membership
-                </a>
-                <a
-                  className="btn-ghost w-full sm:w-auto"
-                  href={FOAM_TRIALS_FORM}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Foam trials
                 </a>
               </div>
 
@@ -239,7 +229,6 @@ function App() {
         <section id="about" className="border-t border-white/10 py-14 sm:py-16">
           <div className="container-pad">
             <SectionHeading
-              eyebrow="About QDA"
               title="Built for the sport. Backed by the community."
               body="Queensland Dodgeball Association Inc (QDA) is the official state governing body of dodgeball in Queensland and a proud affiliate of Dodgeball Australia and the WDBF."
             />
@@ -270,121 +259,135 @@ function App() {
           </div>
         </section>
 
-        <section id="adcs" className="border-t border-white/10 py-14 sm:py-16">
+        <section id="events" className="border-t border-white/10 py-14 sm:py-16">
           <div className="container-pad">
-            <div className="card overflow-hidden">
-              <div className="grid gap-0 lg:grid-cols-2">
-                <div className="p-7 sm:p-10">
-                  <div className="badge w-fit">Upcoming event</div>
-                  <h3 className="mt-4 text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-                    ADCS 2026 — Australian Dodgeball Championships (States)
-                  </h3>
-                  <p className="mt-3 text-white/75">
-                    Hosted at <span className="font-semibold text-white">Nissan Arena</span>, Brisbane on{' '}
-                    <span className="font-semibold text-white">July 4–5, 2026</span>.
-                    Get the key details below and register via the official
-                    forms.
-                  </p>
+            <SectionHeading
+              title="Events"
+              body="View the latest events from Queensland Dodgeball Association."
+            />
 
-                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                      <div className="text-xs font-semibold text-white/70">
-                        Venue
-                      </div>
-                      <div className="mt-1 text-sm font-semibold">
-                        Nissan Arena
-                      </div>
-                      <div className="mt-1 text-sm text-white/70">
-                        Brisbane, Queensland
-                      </div>
+            <div className="mt-10 space-y-10">
+              <div className="card overflow-hidden p-7 sm:p-10">
+                <h3 className="text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                  ADCS 2026 — Australian Dodgeball Championships (States)
+                </h3>
+                <p className="mt-3 text-white/75">
+                  Get the key details below and register via the official forms.
+                </p>
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                    <div className="text-xs font-semibold text-white/70">
+                      Venue
                     </div>
-                    <div className="rounded-xl border border-white/10 bg-white/5 p-4">
-                      <div className="text-xs font-semibold text-white/70">
-                        Dates
-                      </div>
-                      <div className="mt-1 text-sm font-semibold">
-                        July 4–5, 2026
-                      </div>
-                      <div className="mt-1 text-sm text-white/70">
-                        Saturday & Sunday
-                      </div>
+                    <div className="mt-1 text-sm font-semibold">
+                      Nissan Arena
+                    </div>
+                    <div className="mt-1 text-sm text-white/70">
+                      590 Mains Road, Nathan QLD 4111
                     </div>
                   </div>
-
-                  <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                    <a
-                      className="btn-primary"
-                      href={FOAM_TRIALS_FORM}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Foam trials registration
-                    </a>
-                    <a
-                      className="btn-ghost"
-                      href={MEMBERSHIP_FORM}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      2026 membership
-                    </a>
+                  <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                    <div className="text-xs font-semibold text-white/70">
+                      Dates
+                    </div>
+                    <div className="mt-1 text-sm font-semibold">
+                      July 4–5, 2026
+                    </div>
+                    <div className="mt-1 text-sm text-white/70">
+                      Saturday & Sunday
+                    </div>
                   </div>
-
-                  <div className="mt-4" />
                 </div>
 
-                <div className="relative min-h-[260px] bg-gradient-to-br from-qda-maroon-900/40 via-white/5 to-white/0 p-7 sm:p-10">
-                  <div className="absolute inset-0 bg-grain [background-size:22px_22px] opacity-35"></div>
-                  <div className="relative">
-                    <div className="text-xs font-semibold text-white/70">
-                      Why you’ll love ADCS
-                    </div>
-                    <ul className="mt-4 space-y-3 text-sm text-white/80">
-                      <li className="flex gap-3">
-                        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-qda-maroon-600"></span>
-                        Fast-paced dodgeball across the nation’s best state
-                        squads.
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-qda-maroon-600"></span>
-                        A flagship weekend for players, coaches, and supporters.
-                      </li>
-                      <li className="flex gap-3">
-                        <span className="mt-1 h-2.5 w-2.5 rounded-full bg-qda-maroon-600"></span>
-                        Professional venue, high energy, great spectator vibe.
-                      </li>
-                    </ul>
+                <div className="mt-6">
+                  <div className="text-xs font-semibold text-white/70">
+                    Why you’ll love ADCS
+                  </div>
+                  <ul className="mt-4 space-y-3 text-sm text-white/80">
+                    <li className="flex gap-3">
+                      <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-qda-maroon-600"></span>
+                      Fast-paced dodgeball across the nation’s best state squads.
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-qda-maroon-600"></span>
+                      A flagship weekend for players, coaches, and supporters.
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="mt-1 h-2.5 w-2.5 shrink-0 rounded-full bg-qda-maroon-600"></span>
+                      Professional venue, high energy, great spectator vibe.
+                    </li>
+                  </ul>
+                </div>
 
-                    <div className="mt-8 rounded-2xl border border-white/10 bg-qda-ink/40 p-5">
-                      <div className="text-sm font-semibold">
-                        Ready to take the court?
-                      </div>
-                      <div className="mt-2 text-sm text-white/75">
-                        Join QDA for the 2026 season and register for ADCS 2026
-                        via the official forms.
-                      </div>
-                      <div className="mt-4">
-                        <a
-                          className="btn-primary w-full"
-                          href={FOAM_TRIALS_FORM}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Register for foam trials
-                        </a>
-                      </div>
-                      <div className="mt-3">
-                        <a
-                          className="btn-ghost w-full"
-                          href={MEMBERSHIP_FORM}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Complete 2026 membership
-                        </a>
-                      </div>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                  <a
+                    className="btn-primary"
+                    href={FOAM_TRIALS_FORM}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Foam trials registration
+                  </a>
+                  <a
+                    className="btn-ghost"
+                    href={MEMBERSHIP_FORM}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    2026 membership
+                  </a>
+                </div>
+              </div>
+
+              <div className="card overflow-hidden p-7 sm:p-10">
+                <h3 className="text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                  Doubles tournament — Dodgeball Doubles
+                </h3>
+                <p className="mt-3 text-sm text-white/75 sm:text-base">
+                  A fast 2v2 format with Mixed, Men’s, and Women’s divisions—teams
+                  of up to three players with two on court, half-width courts for
+                  quicker play, and three balls with WDBF rules adapted for doubles.
+                  Top three teams and an MVP per division receive medals and
+                  prizes; full university-student teams can access a 50%
+                  registration discount via the organisers. Full pricing and the
+                  uni discount process are on TryBooking.
+                </p>
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                    <div className="text-xs font-semibold text-white/70">
+                      Venue
+                    </div>
+                    <div className="mt-1 text-sm font-semibold">
+                      Somerville House Aquatic Centre
+                    </div>
+                    <div className="mt-1 text-sm text-white/70">
+                      4 Stephens Road, South Brisbane QLD 4101
                     </div>
                   </div>
+                  <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+                    <div className="text-xs font-semibold text-white/70">
+                      Date
+                    </div>
+                    <div className="mt-1 text-sm font-semibold">
+                      Saturday 30 May 2026
+                    </div>
+                    <div className="mt-1 text-sm text-white/70">
+                      8:15am – 5:00pm (AEST)
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-7">
+                  <a
+                    className="btn-primary"
+                    href={DOUBLES_TRYBOOKING}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Register
+                  </a>
                 </div>
               </div>
             </div>
@@ -397,7 +400,6 @@ function App() {
         >
           <div className="container-pad">
             <SectionHeading
-              eyebrow="Get involved"
               title="Membership, trials & registrations"
               body="Use the official QDA forms for 2026 membership and ADCS registrations."
             />
