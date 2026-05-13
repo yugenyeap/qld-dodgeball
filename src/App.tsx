@@ -1,5 +1,7 @@
 const LINKTREE = 'https://linktr.ee/qlddodgeball'
 const INSTAGRAM = 'https://www.instagram.com/queenslanddodgeball/'
+const FACEBOOK =
+  'https://www.facebook.com/profile.php?id=61573353067690'
 const MEMBERSHIP_FORM =
   'https://docs.google.com/forms/d/e/1FAIpQLSd8YKNRB5a0YLPShFXZ_JT5GVr6-htbZecz2cH9TzayGaX-MA/viewform?pli=1'
 const FOAM_TRIALS_FORM =
@@ -44,6 +46,14 @@ function Nav() {
           >
             Instagram
           </a>
+          <a
+            className="btn-ghost hidden sm:inline-flex"
+            href={FACEBOOK}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Facebook
+          </a>
           <a className="btn-ghost hidden sm:inline-flex" href="#adcs">
             Event details
           </a>
@@ -81,6 +91,14 @@ function Nav() {
                   rel="noreferrer"
                 >
                   Instagram
+                </a>
+                <a
+                  className="rounded-xl px-3 py-2 hover:bg-white/10"
+                  href={FACEBOOK}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Facebook
                 </a>
                 <a
                   className="mt-1 rounded-xl bg-qda-maroon-700 px-3 py-2 font-semibold text-white hover:bg-qda-maroon-600"
@@ -446,6 +464,14 @@ function App() {
                 rel="noreferrer"
               >
                 Instagram
+              </a>
+              <a
+                className="text-sm font-semibold text-white/80 hover:text-white"
+                href={FACEBOOK}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Facebook
               </a>
               <a
                 className="text-sm font-semibold text-white/80 hover:text-white"
